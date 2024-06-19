@@ -28,15 +28,52 @@
 
         nav {
             display: flex;
-            justify-content: space-around;
-            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
             background: #333;
+            padding: 10px;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
+            padding: 5px 10px;
             font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            background: #fff;
+            height: 2px;
+            width: 25px;
+            margin: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
         }
 
         .main-content {
@@ -66,10 +103,17 @@
 
     <nav>
         <div class="container">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Programs</a>
-            <a href="#">Contact</a>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Programs</a>
+                <a href="#">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -102,13 +146,16 @@
     </div>
 
     <footer>
-        <p>CEFI Uganda - Committed to Children's Wellbeing and Community Development Since 2012</p>
+        <p>&copy; <span id="year"></span> CEFI Uganda - Committed to Children's Wellbeing and Community Development Since 2012</p>
     </footer>
 
     <script>
-        // Add any JavaScript you need here
-        document.addEventListener('DOMContentLoaded', (event) => {
-            console.log('Page Loaded');
+        // Dynamic Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Responsive Navigation Toggle
+        document.querySelector('.nav-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
     </script>
 </body>
