@@ -1,2 +1,3 @@
-# This repo is live at https://freshteacher.tech/Thendo-Pre-School-and-Daycare
+# This site is live at https://cefi-uganda.github.io/Cefi-Uganda/
+
  
